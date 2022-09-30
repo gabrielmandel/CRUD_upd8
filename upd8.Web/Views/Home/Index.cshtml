@@ -1,0 +1,361 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<script src="https://cdn01.jotfor.ms/static/prototype.forms.js?3.3.36187" type="text/javascript"></script>
+<script src="https://cdn02.jotfor.ms/static/jotform.forms.js?3.3.36187" type="text/javascript"></script>
+<script src="https://cdn03.jotfor.ms/js/vendor/jquery-1.8.0.min.js?v=3.3.36187" type="text/javascript"></script>
+<script defer src="https://cdn01.jotfor.ms/js/vendor/maskedinput.min.js?v=3.3.36187" type="text/javascript"></script>
+<script defer src="https://cdn02.jotfor.ms/js/vendor/jquery.maskedinput.min.js?v=3.3.36187" type="text/javascript"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/punycode/1.4.1/punycode.js"></script>
+<script type="text/javascript">
+    JotForm.newDefaultTheme = true;
+    JotForm.extendsNewTheme = false;
+    JotForm.singleProduct = false;
+    JotForm.newPaymentUIForNewCreatedForms = true;
+    JotForm.newPaymentUI = true;
+    JotForm.clearFieldOnHide = "disable";
+    JotForm.submitError = "jumpToFirstError";
+
+    JotForm.init(function () {
+        /*INIT-START*/
+
+        JotForm.calendarMonths = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        JotForm.calendarDays = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado", "Domingo"];
+        JotForm.calendarOther = { "today": "Hoje" };
+        var languageOptions = document.querySelectorAll('#langList li');
+        for (var langIndex = 0; langIndex < languageOptions.length; langIndex++) {
+            languageOptions[langIndex].on('click', function (e) { setTimeout(function () { JotForm.setCalendar("13", false, { "days": { "monday": true, "tuesday": true, "wednesday": true, "thursday": true, "friday": true, "saturday": true, "sunday": true }, "future": true, "past": true, "custom": false, "ranges": false, "start": "", "end": "" }); }, 0); });
+        }
+        JotForm.onTranslationsFetch(function () { JotForm.setCalendar("13", false, { "days": { "monday": true, "tuesday": true, "wednesday": true, "thursday": true, "friday": true, "saturday": true, "sunday": true }, "future": true, "past": true, "custom": false, "ranges": false, "start": "", "end": "" }); });
+        JotForm.setPhoneMaskingValidator('input_5_full', '(##) ####-####');
+        setTimeout(function () {
+            $('input_10').hint('por ex.: 12345678900');
+        }, 20);
+        if (window.JotForm && JotForm.accessible) $('input_11').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_17').setAttribute('tabindex', 0);
+        if (window.JotForm && JotForm.accessible) $('input_32').setAttribute('tabindex', 0);
+        setTimeout(function () {
+            $('input_32').hint('por ex.: 0000-0');
+        }, 20);
+        if (window.JotForm && JotForm.accessible) $('input_33').setAttribute('tabindex', 0);
+        setTimeout(function () {
+            $('input_33').hint('por ex.: 245876-25');
+        }, 20);
+        setTimeout(function () {
+            $('input_22').hint('por ex.: 23');
+        }, 20);
+        JotForm.alterTexts({ "ageVerificationError": "Você deve ter mais de {minAge} anos para enviar este formulário.", "alphabetic": "Este campo pode conter apenas letras", "alphanumeric": "Este campo só pode conter letras e números.", "appointmentSelected": "Você selecionou {time} em {date}", "ccDonationMinLimitError": "Valor mínimo é {minAmount} {currency}", "ccInvalidCVC": "Single Product w/ Single Choice Orders", "ccInvalidExpireDate": "Data de expiração inválida.", "ccInvalidNumber": "Número do cartão de crédito é inválido.", "ccMissingDetails": "Please fill up the credit card details.", "ccMissingDonation": "Insira valores numéricos para o montante de doação.", "ccMissingProduct": "Por favor, selecione pelo menos um produto.", "characterLimitError": "Muitos caracteres. O limite é de", "characterMinLimitError": "Muito poucos caracteres. O mínimo é", "confirmClearForm": "Você tem certeza que quer limpar este formulário", "confirmEmail": "E-mail não confere", "currency": "Este campo apenas admite valores monetários.", "cyrillic": "Este campo aceita apenas caracteres cirilicos.", "dateInvalid": "Esta data não é válida. O formato da data é {format}", "dateInvalidSeparate": "Esta data não é válido. Insira um válido {element}.", "dateLimited": "Esta data não está disponível.", "disallowDecimals": "Por favor insira um número inteiro.", "email": "Digite um endereço de e-mail válido.", "fillMask": "Valor do campo deve preencher máscara.", "freeEmailError": "Não são permitidas contas de e-mail gratuitas", "generalError": "O formulário contém erros. Por favor, corrija todos os erros antes de continuar.", "generalPageError": "Há erros nesta página. Por favor, corrija-os antes de continuar.", "gradingScoreError": "Pontuação total deve ser menor ou igual a", "incompleteFields": "Há campos obrigatórios incompletos. Por favor, preencha-os.", "inputCarretErrorA": "Não pode ser menor que o valor mínimo:", "inputCarretErrorB": "A entrada não deveria ser maior que o valor máximo:", "lessThan": "A sua pontuação deve ser inferior ou igual a", "maxDigitsError": "O numero máximo de caracteres permitidos são", "maxSelectionsError": "The maximum number of selections allowed is ", "minSelectionsError": "O número mínimo de seleções exigido é", "multipleFileUploads_emptyError": "{file} está vazio, por favor selecione os arquivos de novo.", "multipleFileUploads_fileLimitError": "São permitidos somente {fileLimit} uploads de arquivos", "multipleFileUploads_minSizeError": "{file} é muito pequeno, o tamanho mínimo do arquivo é {minSizeLimit}.", "multipleFileUploads_onLeave": "O upload de arquivos está em andamento. Se você sair agora, o envio será cancelado.", "multipleFileUploads_sizeError": "{file} é muito grande, o tamanho máximo é {sizeLimit}.", "multipleFileUploads_typeError": "O arquivo {file} é inválido, pois somente as extensões {extensions} são permitidas.", "multipleFileUploads_uploadFailed": "File upload failed, please remove it and upload the file again.", "noSlotsAvailable": "Nenhum horário disponível", "noUploadExtensions": "File has no extension file type (e.g. .txt, .png, .jpeg)", "numeric": "Este campo pode conter apenas números", "pastDatesDisallowed": "A data não pode ser passada.", "pleaseWait": "Por favor, aguarde...", "required": "Este campo é obrigatório.", "requireEveryCell": "Toda célula é requisitada.", "requireEveryRow": "Todos os campos são requeridos.", "requireOne": "Pelo menos um campo é requisitado.", "restrictedDomain": "This domain is not allowed", "slotUnavailable": "{time} em {date} já foi selecionado. Selecione outra opção.", "uploadExtensions": "Somente é possível fazer upload dos seguintes arquivos:", "uploadFilesize": "O tamanho do arquivo não pode ser maior que:", "uploadFilesizemin": "O ficheiro não pode ser menor que:", "url": "Este campo apenas pode conter um URL válido", "validateEmail": "You need to validate this e-mail", "wordLimitError": "Demasiadas palavras. O limite é de", "wordMinLimitError": "Poucas palavras. O mínimo é" });
+        /*INIT-END*/
+    });
+
+    JotForm.prepareCalculationsOnTheFly([null, { "name": "cadastroResidentes", "qid": "1", "text": "CADASTRO RESIDENTES", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Enviar", "type": "control_button" }, { "name": "nome", "qid": "3", "text": "Nome", "type": "control_fullname" }, { "name": "email", "qid": "4", "subLabel": "exemplo@exemplo.com.br", "text": "E-mail", "type": "control_email" }, { "name": "telefone", "qid": "5", "text": "Telefone", "type": "control_phone" }, null, { "name": "endereco", "qid": "7", "text": "Endereco", "type": "control_address" }, null, null, { "name": "cpf", "qid": "10", "subLabel": "00000000000", "text": "CPF", "type": "control_number" }, { "name": "rg11", "qid": "11", "subLabel": "numero\u002F Orgao Expedidor", "text": "RG ", "type": "control_textbox" }, null, { "name": "dataDe", "qid": "13", "text": "Data de Nascimento", "type": "control_datetime" }, null, null, null, { "name": "banco", "qid": "17", "text": "BANCO", "type": "control_textbox" }, null, null, null, null, { "name": "operacao", "qid": "22", "subLabel": "Apenas para o caso de poupanca e caso tenha.", "text": "OPERACAO", "type": "control_number" }, { "name": "divisor", "qid": "23", "type": "control_divider" }, { "name": "divisor24", "qid": "24", "type": "control_divider" }, null, { "name": "estadoCivil", "qid": "26", "text": "ESTADO CIVIL", "type": "control_dropdown" }, null, null, null, null, null, { "name": "agencia32", "qid": "32", "text": "AGENCIA", "type": "control_textbox" }, { "name": "contaCorrentepoupanca33", "qid": "33", "text": "CONTA CORRENTE\u002FPOUPANCA", "type": "control_textbox" }]);
+    setTimeout(function () {
+        JotForm.paymentExtrasOnTheFly([null, { "name": "cadastroResidentes", "qid": "1", "text": "CADASTRO RESIDENTES", "type": "control_head" }, { "name": "submit2", "qid": "2", "text": "Enviar", "type": "control_button" }, { "name": "nome", "qid": "3", "text": "Nome", "type": "control_fullname" }, { "name": "email", "qid": "4", "subLabel": "exemplo@exemplo.com.br", "text": "E-mail", "type": "control_email" }, { "name": "telefone", "qid": "5", "text": "Telefone", "type": "control_phone" }, null, { "name": "endereco", "qid": "7", "text": "Endereco", "type": "control_address" }, null, null, { "name": "cpf", "qid": "10", "subLabel": "00000000000", "text": "CPF", "type": "control_number" }, { "name": "rg11", "qid": "11", "subLabel": "numero\u002F Orgao Expedidor", "text": "RG ", "type": "control_textbox" }, null, { "name": "dataDe", "qid": "13", "text": "Data de Nascimento", "type": "control_datetime" }, null, null, null, { "name": "banco", "qid": "17", "text": "BANCO", "type": "control_textbox" }, null, null, null, null, { "name": "operacao", "qid": "22", "subLabel": "Apenas para o caso de poupanca e caso tenha.", "text": "OPERACAO", "type": "control_number" }, { "name": "divisor", "qid": "23", "type": "control_divider" }, { "name": "divisor24", "qid": "24", "type": "control_divider" }, null, { "name": "estadoCivil", "qid": "26", "text": "ESTADO CIVIL", "type": "control_dropdown" }, null, null, null, null, null, { "name": "agencia32", "qid": "32", "text": "AGENCIA", "type": "control_textbox" }, { "name": "contaCorrentepoupanca33", "qid": "33", "text": "CONTA CORRENTE\u002FPOUPANCA", "type": "control_textbox" }]);
+    }, 20);
+</script>
+<style type="text/css">
+    media print {
+        .form-section
+
+    {
+        display: inline !important
+    }
+
+    .form-pagebreak {
+        display: none !important
+    }
+
+    .form-section-closed {
+        height: auto !important
+    }
+
+    .page-section {
+        position: initial !important
+    }
+    }
+</style>
+<link type="text/css" rel="stylesheet" href="https://cdn01.jotfor.ms/themes/CSS/5e6b428acc8c4e222d1beb91.css?themeRevisionID=5f6c4d5f89fb4a374f76b581" />
+<link type="text/css" rel="stylesheet" href="https://cdn02.jotfor.ms/css/styles/payment/payment_styles.css?3.3.36187" />
+<link type="text/css" rel="stylesheet" href="https://cdn03.jotfor.ms/css/styles/payment/payment_feature.css?3.3.36187" />
+<form class="jotform-form" action="https://submit.jotform.com/submit/222725665717665/" method="post" name="form_222725665717665" id="222725665717665" accept-charset="utf-8" autocomplete="on">
+    <input type="hidden" name="formID" value="222725665717665" />
+    <input type="hidden" id="JWTContainer" value="" />
+    <input type="hidden" id="cardinalOrderNumber" value="" />
+    <div role="main" class="form-all">
+        <style>
+            .form-all:before {
+                background: none;
+            }
+        </style>
+        <ul class="form-section page-section">
+            <li id="cid_1" class="form-input-wide" data-type="control_head">
+                <div class="form-header-group  header-large">
+                    <div class="header-text httal htvam">
+                        <h1 id="header_1" class="form-header" data-component="header">
+                            CADASTRO RESIDENTES
+                        </h1>
+                        <div id="subHeader_1" class="form-subHeader">
+                            Formulário de cadastro dos residentes do Edital XXX/2020.
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_fullname" id="id_3">
+                <label class="form-label form-label-top form-label-auto" id="label_3" for="first_3">
+                    Nome
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_3" class="form-input-wide jf-required" data-layout="full">
+                    <div data-wrapper-react="true">
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                            <input type="text" id="first_3" name="q3_nome[first]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_3 given-name" size="10" value="" data-component="first" aria-labelledby="label_3 sublabel_3_first" required="" />
+                            <label class="form-sub-label" for="first_3" id="sublabel_3_first" style="min-height:13px" aria-hidden="false"> Nome </label>
+                        </span>
+                        <span class="form-sub-label-container" style="vertical-align:top" data-input-type="last">
+                            <input type="text" id="last_3" name="q3_nome[last]" class="form-textbox validate[required]" data-defaultvalue="" autoComplete="section-input_3 family-name" size="15" value="" data-component="last" aria-labelledby="label_3 sublabel_3_last" required="" />
+                            <label class="form-sub-label" for="last_3" id="sublabel_3_last" style="min-height:13px" aria-hidden="false"> Sobrenome </label>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_datetime" id="id_13">
+                <label class="form-label form-label-top form-label-auto" id="label_13" for="lite_mode_13">
+                    Data de Nascimento
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_13" class="form-input-wide jf-required" data-layout="half">
+                    <div data-wrapper-react="true">
+                        <div style="display:none">
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                                <input type="tel" class="form-textbox validate[required, limitDate]" id="day_13" name="q13_dataDe[day]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" required="" autoComplete="section-input_13 off" aria-labelledby="label_13 sublabel_13_day" />
+                                <span class="date-separate" aria-hidden="true">
+                                    /
+                                </span>
+                                <label class="form-sub-label" for="day_13" id="sublabel_13_day" style="min-height:13px" aria-hidden="false"> dia </label>
+                            </span>
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                                <input type="tel" class="form-textbox validate[required, limitDate]" id="month_13" name="q13_dataDe[month]" size="2" data-maxlength="2" data-age="" maxLength="2" value="" required="" autoComplete="section-input_13 off" aria-labelledby="label_13 sublabel_13_month" />
+                                <span class="date-separate" aria-hidden="true">
+                                    /
+                                </span>
+                                <label class="form-sub-label" for="month_13" id="sublabel_13_month" style="min-height:13px" aria-hidden="false"> Mês </label>
+                            </span>
+                            <span class="form-sub-label-container" style="vertical-align:top">
+                                <input type="tel" class="form-textbox validate[required, limitDate]" id="year_13" name="q13_dataDe[year]" size="4" data-maxlength="4" data-age="" maxLength="4" value="" required="" autoComplete="section-input_13 off" aria-labelledby="label_13 sublabel_13_year" />
+                                <label class="form-sub-label" for="year_13" id="sublabel_13_year" style="min-height:13px" aria-hidden="false"> Ano </label>
+                            </span>
+                        </div>
+                        <span class="form-sub-label-container" style="vertical-align:top">
+                            <input type="text" class="form-textbox validate[required, limitDate, validateLiteDate]" id="lite_mode_13" size="12" data-maxlength="12" maxLength="12" data-age="" value="" required="" data-format="ddmmyyyy" data-seperator="/" placeholder="DD/MM/YYYY" autoComplete="section-input_13 off" aria-labelledby="label_13 sublabel_13_litemode" />
+                            <img class=" newDefaultTheme-dateIcon icon-liteMode" alt="Escolher uma data" id="input_13_pick" src="https://cdn.jotfor.ms/images/calendar.png" data-component="datetime" aria-hidden="true" data-allow-time="No" data-version="v2" />
+                            <label class="form-sub-label" for="lite_mode_13" id="sublabel_13_litemode" style="min-height:13px" aria-hidden="false"> Data </label>
+                        </span>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_dropdown" id="id_26">
+                <label class="form-label form-label-top form-label-auto" id="label_26" for="input_26">
+                    ESTADO CIVIL
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_26" class="form-input-wide jf-required" data-layout="half">
+                    <select class="form-dropdown validate[required]" id="input_26" name="q26_estadoCivil" style="width:310px" data-component="dropdown" required="">
+                        <option value=""> Favor selecionar </option>
+                        <option value="SOLTEIRO (A)"> SOLTEIRO (A) </option>
+                        <option value="CASADO (A)"> CASADO (A) </option>
+                        <option value="UNIÃO ESTÁVEL"> UNIÃO ESTÁVEL </option>
+                        <option value="VIÚVO (A)"> VIÚVO (A) </option>
+                        <option value="OUTRO"> OUTRO </option>
+                    </select>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_email" id="id_4">
+                <label class="form-label form-label-top form-label-auto" id="label_4" for="input_4">
+                    E-mail
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_4" class="form-input-wide jf-required" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="email" id="input_4" name="q4_email" class="form-textbox validate[required, Email]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="email" aria-labelledby="label_4 sublabel_input_4" required="" />
+                        <label class="form-sub-label" for="input_4" id="sublabel_input_4" style="min-height:13px" aria-hidden="false"> exemplo@exemplo.com.br </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_phone" id="id_5">
+                <label class="form-label form-label-top form-label-auto" id="label_5" for="input_5_full">
+                    Telefone
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_5" class="form-input-wide jf-required" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="tel" id="input_5_full" name="q5_telefone[full]" data-type="mask-number" class="mask-phone-number form-textbox validate[required, Fill Mask]" data-defaultvalue="" autoComplete="section-input_5 tel-national" style="width:310px" data-masked="true" value="" placeholder="(00) 0000-0000" data-component="phone" aria-labelledby="label_5 sublabel_5_masked" required="" />
+                        <label class="form-sub-label" for="input_5_full" id="sublabel_5_masked" style="min-height:13px" aria-hidden="false"> Favor inserir um número de telefone válido </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_address" id="id_7" data-compound-hint="Rua dos Bolsistas 26, Bairro Bolsas,,,,">
+                <label class="form-label form-label-top form-label-auto" id="label_7" for="input_7_addr_line1">
+                    Endereço
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_7" class="form-input-wide jf-required" data-layout="full">
+                    <div summary="" class="form-address-table jsTest-addressField">
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                            <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                                <span class="form-sub-label-container" style="vertical-align:top">
+                                    <input type="text" id="input_7_addr_line1" name="q7_endereco[addr_line1]" class="form-textbox validate[required] form-address-line" data-defaultvalue="" autoComplete="section-input_7 address-line1" value="" placeholder="Rua dos Bolsistas 26" data-component="address_line_1" aria-labelledby="label_7 sublabel_7_addr_line1" required="" />
+                                    <label class="form-sub-label" for="input_7_addr_line1" id="sublabel_7_addr_line1" style="min-height:13px" aria-hidden="false"> Logradouro, Número, Bairro </label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                            <span class="form-address-line form-address-street-line jsTest-address-lineField">
+                                <span class="form-sub-label-container" style="vertical-align:top">
+                                    <input type="text" id="input_7_addr_line2" name="q7_endereco[addr_line2]" class="form-textbox form-address-line" data-defaultvalue="" autoComplete="section-input_7 address-line2" value="" placeholder=" Bairro Bolsas" data-component="address_line_2" aria-labelledby="label_7 sublabel_7_addr_line2" />
+                                    <label class="form-sub-label" for="input_7_addr_line2" id="sublabel_7_addr_line2" style="min-height:13px" aria-hidden="false"> Endereço (cont.) </label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                            <span class="form-address-line form-address-city-line jsTest-address-lineField ">
+                                <span class="form-sub-label-container" style="vertical-align:top">
+                                    <input type="text" id="input_7_city" name="q7_endereco[city]" class="form-textbox validate[required] form-address-city" data-defaultvalue="" autoComplete="section-input_7 address-level2" value="" data-component="city" aria-labelledby="label_7 sublabel_7_city" required="" />
+                                    <label class="form-sub-label" for="input_7_city" id="sublabel_7_city" style="min-height:13px" aria-hidden="false"> Cidade </label>
+                                </span>
+                            </span>
+                            <span class="form-address-line form-address-state-line jsTest-address-lineField ">
+                                <span class="form-sub-label-container" style="vertical-align:top">
+                                    <input type="text" id="input_7_state" name="q7_endereco[state]" class="form-textbox validate[required] form-address-state" data-defaultvalue="" autoComplete="section-input_7 address-level1" value="" data-component="state" aria-labelledby="label_7 sublabel_7_state" required="" />
+                                    <label class="form-sub-label" for="input_7_state" id="sublabel_7_state" style="min-height:13px" aria-hidden="false"> Estado </label>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="form-address-line-wrapper jsTest-address-line-wrapperField">
+                            <span class="form-address-line form-address-zip-line jsTest-address-lineField ">
+                                <span class="form-sub-label-container" style="vertical-align:top">
+                                    <input type="text" id="input_7_postal" name="q7_endereco[postal]" class="form-textbox validate[required] form-address-postal" data-defaultvalue="" autoComplete="section-input_7 postal-code" value="" data-component="zip" aria-labelledby="label_7 sublabel_7_postal" required="" />
+                                    <label class="form-sub-label" for="input_7_postal" id="sublabel_7_postal" style="min-height:13px" aria-hidden="false"> CEP / Código postal </label>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_number" id="id_10">
+                <label class="form-label form-label-top form-label-auto" id="label_10" for="input_10">
+                    CPF
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_10" class="form-input-wide jf-required" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="number" id="input_10" name="q10_cpf" data-type="input-number" class=" form-number-input form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="por ex.: 12345678900" data-component="number" aria-labelledby="label_10 sublabel_input_10" required="" step="any" />
+                        <label class="form-sub-label" for="input_10" id="sublabel_input_10" style="min-height:13px" aria-hidden="false"> 00000000000 </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_11">
+                <label class="form-label form-label-top form-label-auto" id="label_11" for="input_11">
+                    RG
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_11" class="form-input-wide jf-required" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="text" id="input_11" name="q11_rg11" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_11 sublabel_input_11" required="" />
+                        <label class="form-sub-label" for="input_11" id="sublabel_input_11" style="min-height:13px" aria-hidden="false"> numero/ Órgão Expedidor </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_divider" id="id_24">
+                <div id="cid_24" class="form-input-wide" data-layout="full">
+                    <div class="divider" aria-label="Divider" data-component="divider" style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+                    </div>
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_17">
+                <label class="form-label form-label-top form-label-auto" id="label_17" for="input_17">
+                    BANCO
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_17" class="form-input-wide jf-required" data-layout="half">
+                    <input type="text" id="input_17" name="q17_banco" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" data-component="textbox" aria-labelledby="label_17" required="" />
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_32">
+                <label class="form-label form-label-top form-label-auto" id="label_32" for="input_32">
+                    AGÊNCIA
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_32" class="form-input-wide jf-required" data-layout="half">
+                    <input type="text" id="input_32" name="q32_agencia32" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="por ex.: 0000-0" data-component="textbox" aria-labelledby="label_32" required="" />
+                </div>
+            </li>
+            <li class="form-line jf-required" data-type="control_textbox" id="id_33">
+                <label class="form-label form-label-top form-label-auto" id="label_33" for="input_33">
+                    CONTA CORRENTE/POUPANÇA
+                    <span class="form-required">
+                        *
+                    </span>
+                </label>
+                <div id="cid_33" class="form-input-wide jf-required" data-layout="half">
+                    <input type="text" id="input_33" name="q33_contaCorrentepoupanca33" data-type="input-textbox" class="form-textbox validate[required]" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="por ex.: 245876-25" data-component="textbox" aria-labelledby="label_33" required="" />
+                </div>
+            </li>
+            <li class="form-line" data-type="control_number" id="id_22">
+                <label class="form-label form-label-top form-label-auto" id="label_22" for="input_22"> OPERAÇÃO </label>
+                <div id="cid_22" class="form-input-wide" data-layout="half">
+                    <span class="form-sub-label-container" style="vertical-align:top">
+                        <input type="number" id="input_22" name="q22_operacao" data-type="input-number" class=" form-number-input form-textbox" data-defaultvalue="" style="width:310px" size="310" value="" placeholder="por ex.: 23" data-component="number" aria-labelledby="label_22 sublabel_input_22" step="any" />
+                        <label class="form-sub-label" for="input_22" id="sublabel_input_22" style="min-height:13px" aria-hidden="false"> Apenas para o caso de poupança e caso tenha. </label>
+                    </span>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_divider" id="id_23">
+                <div id="cid_23" class="form-input-wide" data-layout="full">
+                    <div class="divider" aria-label="Divider" data-component="divider" style="border-bottom-width:1px;border-bottom-style:solid;border-color:#e6e6e6;height:1px;margin-left:0px;margin-right:0px;margin-top:5px;margin-bottom:5px">
+                    </div>
+                </div>
+            </li>
+            <li class="form-line" data-type="control_button" id="id_2">
+                <div id="cid_2" class="form-input-wide" data-layout="full">
+                    <div data-align="auto" class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+                        <button id="input_2" type="submit" class="form-submit-button submit-button jf-form-buttons jsTest-submitField" data-component="button" data-content="">
+                            Enviar
+                        </button>
+                    </div>
+                </div>
+            </li>
+            <li style="display:none">
+                Should be Empty:
+                <input type="text" name="website" value="" />
+            </li>
+        </ul>
+    </div>
+</form>
+<script src="https://cdn.jotfor.ms//js/vendor/smoothscroll.min.js?v=3.3.36187"></script>
+<script src="https://cdn.jotfor.ms//js/errorNavigation.js?v=3.3.36187"></script>
